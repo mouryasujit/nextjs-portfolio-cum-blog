@@ -16,12 +16,25 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.theme {
+  transition: 1s all ease;
+}
+
+.light {
+  background-color: white;
+  color: #111;
+}
+
+.dark {
+  background-color: #111;
+  color: #fff;
+}
+.moving {
+  animation: moving 3s ease-in-out infinite alternate;
+}
+
+@keyframes moving {
+  0% {
+    transform: translateY(8%);
+  }
 }
