@@ -21,7 +21,7 @@ const Contact = () => {
       </h1>
       <div className="big w-[80vw] md:w-[70%]  flex md:flex-row flex-col mx-auto justify-between">
         <div className="IMG flex-1 moving mb-6 ">
-          <Image src={contact} className="md:w-[350px]  md:h-[350px] w-[90vw] h-[40vh] relative" />
+          <Image src={contact} alt="" className="md:w-[350px]  md:h-[350px] w-[90vw] h-[40vh] relative" />
         </div>
         <form
           onSubmit={handleSubmit}

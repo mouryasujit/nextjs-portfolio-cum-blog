@@ -16,24 +16,24 @@ const Footer = () => {
           <div className="icon flex gap-x-3">
             <Link href="https://www.linkedin.com/in/sujitkumar-mourya-9640a523a/">
               <div className="img1 h-7 w-7">
-                <Image src={Insta} />
+                <Image alt="" src={Insta} />
               </div>
             </Link>
             <div
               className="img1 h-7 w-7"
               href="https://www.linkedin.com/in/sujitkumar-mourya-9640a523a/"
             >
-              <Image src={face} />
+              <Image alt="" src={face} />
             </div>
             <div
               className="img1 h-7 w-7"
               href="https://twitter.com/Sujitkumar200?t=R10HF1rcucA-fE1pHGgttw&s=08"
             >
-              <Image src={twit} />
+              <Image alt="" src={twit} />
             </div>
             <Link href="https://youtube.com/@cartonimation">
               <div className="img1 h-7 w-7">
-                <Image src={yout} />
+                <Image alt="" src={yout} />
               </div>
             </Link>
           </div>

@@ -34,13 +34,13 @@ const Blogpost = async ({ params }) => {
             <p className="text text-xl text-gray-300 ">{data.desc}</p>
             <div className="profile flex items-center gap-3 ">
               <div className="profileimg w-8 h-8 relative rounded-full ">
-                <Image src={data.img} className="rounded-full" fill></Image>
+                <Image src={data.img} className="rounded-full" alt="" fill></Image>
               </div>
               <h4 className="name">{data.username}</h4>
             </div>
           </div>
           <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
-            <Image src={data.img} fill />
+            <Image src={data.img} fill alt="" />
           </div>
         </div>
         <p className="test-container text-gray-300 ">{data.content}</p>
