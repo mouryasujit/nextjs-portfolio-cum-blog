@@ -79,6 +79,7 @@ const Navbar = () => {
                 className="hover:bg-blue-500 hover:rounded-md p-1"
                 href={list.url}
                 key={list.id}
+                onClick={() => setOpen(!open)}
               >
                 {list.title}
               </Link>
@@ -97,7 +98,10 @@ const Navbar = () => {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-3 ">
+              <div
+                className="flex items-center gap-3 "
+                onClick={() => setOpen(!open)}
+              >
                 <Link
                   href="/dashboard/login"
                   className="bg-green-500 p-1 rounded-sm hover:bg-white hover:text-green-500 hover:text-bold"
