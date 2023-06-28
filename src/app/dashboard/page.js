@@ -91,7 +91,7 @@ const Dashboard = () => {
                 >
                   <div className="">
                     <Image
-                      src={imgarr[Math.floor(Math.random() * 14)]}
+                      src={imgarr[Math.floor(Math.random() * 13)]}
                       alt=""
                       width={200}
                       height={100}

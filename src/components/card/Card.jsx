@@ -21,16 +21,14 @@ const Card = ({ item }) => {
   ];
 
   return (
-    <Link
-      href={`https://nextjs-portfolio-cum-blog.vercel.app/blog/${item._id}`}
-    >
+    <Link href={`/blog/${item._id}`}>
       <div
         className="posts flex flex-col items-center gap-5 bg-gray-300 shadow-md rounded-lg p-3 "
         key={item?.id}
       >
         <div className="img   h-[250px] w-[350px] relative ">
           <Image
-            src={imgarr[Math.floor(Math.random() * 14)]}
+            src={imgarr[Math.floor(Math.random() * 13)]}
             alt="post-image"
             fill="true"
             className="h-full w-full"

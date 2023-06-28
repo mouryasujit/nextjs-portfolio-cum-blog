@@ -46,29 +46,31 @@ const Blogpost = async ({ params }) => {
   const data = await getData(params.id);
   return (
     <>
-      <div className="max-w-7xl  mx-auto flex flex-col gap-7 my-14 p-2 ">
-        <div className="with-img w-7xl  flex gap-4 justify-between flex-col  md:flex-row w-[90vw] md:w-full md:full  ">
-          <div className="info flex flex-col justify-between py-4 w-[100%] ">
-            <h3 className="title text-4xl font-bold ">{data.title}</h3>
-            <p className="text text-xl text-gray-300 ">{data.desc}</p>
-            <div className="profile flex items-center gap-3 ">
-              <div className="profileimg w-8 h-8 relative rounded-full ">
-                <Image
-                  src={imgarr[Math.floor(Math.random() * 14)]}
-                  className="rounded-full"
-                  alt=""
-                  fill
-                ></Image>
+      {data && (
+        <div className="max-w-7xl  mx-auto flex flex-col gap-7 my-14 p-2 ">
+          <div className="with-img w-7xl  flex gap-4 justify-between flex-col  md:flex-row w-[90vw] md:w-full md:full  ">
+            <div className="info flex flex-col justify-between py-4 w-[100%] ">
+              <h3 className="title text-4xl font-bold ">{data?.title}</h3>
+              <p className="text text-xl text-gray-300 ">{data?.desc}</p>
+              <div className="profile flex items-center gap-3 ">
+                <div className="profileimg w-8 h-8 relative rounded-full ">
+                  <Image
+                    src={imgarr[Math.floor(Math.random() * 13)]}
+                    className="rounded-full"
+                    alt=""
+                    fill
+                  ></Image>
+                </div>
+                <h4 className="name">{data?.username}</h4>
               </div>
-              <h4 className="name">{data.username}</h4>
+            </div>
+            <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
+              <Image src={imgarr[Math.random() * 14]} fill alt="" />
             </div>
           </div>
-          <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
-            <Image src={imgarr[Math.random() * 14]} fill alt="" />
-          </div>
+          <p className="test-container text-gray-300 ">{data?.content}</p>
         </div>
-        <p className="test-container text-gray-300 ">{data.content}</p>
-      </div>
+      )}
     </>
   );
 };
