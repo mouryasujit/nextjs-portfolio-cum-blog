@@ -22,7 +22,8 @@ const Blog = async () => {
   return (
     <>
       <div className=" flex flex-wrap justify-between gap-10 w-full my-14 p-2 ">
-        {data && data?.map((item) => <Card item={item} key={item._id} />)}
+        {Array.isArray(data) &&
+          data?.map((item) => <Card item={item} key={item._id} />)}
       </div>
     </>
   );
