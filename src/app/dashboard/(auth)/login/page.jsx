@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 
-const page = () => {
-  const router = useRouter();
-  const session = useSession();
+const Login = () => {
+  const Router = useRouter();
+  const Session = useSession();
   const [err, seterr] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,14 +20,14 @@ const page = () => {
     } catch (error) {
       seterr(true);
     }
-    router?.push("/");
+    Router?.push("/");
   };
 
-  if (session.status === "loading") {
+  if (Session.status === "loading") {
     return <p>Loading...</p>;
   }
-  if (session.status == "authenticated") {
-    router?.push("/dashboard");
+  if (Session.status == "authenticated") {
+    Router?.push("/dashboard");
   }
 
   return (
@@ -78,4 +78,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Login;
