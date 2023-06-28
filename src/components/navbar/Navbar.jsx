@@ -114,7 +114,12 @@ const Navbar = () => {
             )}
           </div>
         )}
-        <div className="md:hidden text-white " onClick={() => setOpen(!open)}>
+        <div
+          className={
+            mode === "dark" ? "md:hidden text-white " : "md:hidden text-black"
+          }
+          onClick={() => setOpen(!open)}
+        >
           <MenuIcon />
         </div>
       </div>

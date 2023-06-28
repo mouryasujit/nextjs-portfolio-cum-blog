@@ -23,12 +23,11 @@ const Card = ({ item }) => {
   return (
     <Link href={`/blog/${item._id}`}>
       <div className="posts flex flex-col items-center gap-5 bg-gray-300 shadow-md rounded-lg p-3 ">
-        <div className="img   h-[250px] w-[350px] relative ">
+        <div className="img w-[80vw] h-[40vh]   md:h-[250px] md:w-[350px]  relative ">
           <Image
             src={imgarr[Math.floor(Math.random() * 13)]}
             alt="post-image"
-            fill="true"
-            className="h-full w-full"
+            fill
           />
         </div>
         <div className="content flex-2 flex justify-center flex-col gap-3 ">
