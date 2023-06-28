@@ -6,24 +6,26 @@ import { PageNotFoundError } from "next/dist/shared/lib/utils";
 // import { NextResponse } from "next/server";
 import axios from "axios";
 
-const getData = async (id) => {
-  try {
-    const res = await axios.get(
-      // `http://localhost:3000/api/posts/${id}`
-      `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`
-    );
-    console.log(res.data);
-    return res.data;
-  } catch (error) {
-    return new PageNotFoundError("404 not found");
+async function getData(id) {
+  const res = await fetch(
+    `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!res.ok) {
+    return notFound();
   }
-};
+
+  return res.json();
+}
 
 export async function generateMetadata({ params }) {
   const post = await getData(params.id);
   return {
-    title: post.title,
-    description: post.desc,
+    title: post?.title,
+    description: post?.desc,
   };
 }
 const Blogpost = async ({ params }) => {
