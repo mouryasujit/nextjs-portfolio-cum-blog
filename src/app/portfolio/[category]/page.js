@@ -53,8 +53,8 @@ const page = ({ params }) => {
               </button>
             </Link>
           </div>
-          <div className="img   w-[90vw]  md:w-[300px] h-[450px] mx-auto relative flex-1 ">
-            <Image alt="" src="/jobathon.jpg" className="h-full w-full" fill />
+          <div className="img   w-[90vw]  md:w-[300px] h-[450px] mx-auto relative flex-1  ">
+            <Image alt="" src="/jobathon.jpg" className="" fill />
           </div>
         </div>
         <div className="small flex w-full flex-col gap-6 mb-12 md:odd:flex-row-reverse shadow-md odd:bg-gray-400 rounded-md h-[90vh] md:h-full p-2 ">
@@ -73,7 +73,12 @@ const page = ({ params }) => {
             </Link>
           </div>
           <div className="img   w-[90vw]  md:w-[300px] h-[450px] mx-auto relative flex-1 ">
-            <Image alt="" src="/BeFunky-collage.jpg" className="h-full w-full" fill />
+            <Image
+              alt=""
+              src="/BeFunky-collage.jpg"
+              className="h-full w-full"
+              fill
+            />
           </div>
         </div>
         <div className="small flex w-full flex-col  gap-6 mb-12 md:odd:flex-row-reverse shadow-md odd:bg-gray-400 rounded-md h-[90vh] md:h-full p-2 ">
@@ -92,7 +97,7 @@ const page = ({ params }) => {
             </Link>
           </div>
           <div className="img   w-[90vw]  md:w-[300px] h-[450px] mx-auto relative flex-1 ">
-            <Image alt="" src="/whetherapp.jpg" className="h-full w-full" fill />
+            <Image alt="" src="/whetherapp.jpg" className="" fill />
           </div>
         </div>
       </div>
