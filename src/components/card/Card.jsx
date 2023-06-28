@@ -24,7 +24,7 @@ const Card = ({ item }) => {
     <Link href={`/blog/${item._id}`}>
       <div
         className="posts flex flex-col items-center gap-5 bg-gray-300 shadow-md rounded-lg p-3 "
-        key={item?.id}
+       
       >
         <div className="img   h-[250px] w-[350px] relative ">
           <Image
