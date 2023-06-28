@@ -8,7 +8,9 @@ import axios from "axios";
 
 const getData = async (id) => {
   try {
-    const res = await axios.get(`http://localhost:3000/api/posts/${id}`);
+    const res = await axios.get(
+      `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`
+    );
     return res.data;
   } catch (error) {
     return new PageNotFoundError("404 not found");
@@ -34,13 +36,18 @@ const Blogpost = async ({ params }) => {
             <p className="text text-xl text-gray-300 ">{data.desc}</p>
             <div className="profile flex items-center gap-3 ">
               <div className="profileimg w-8 h-8 relative rounded-full ">
-                <Image src={data.img} className="rounded-full" alt="" fill></Image>
+                <Image
+                  src={data.img || "/websites.jpg"}
+                  className="rounded-full"
+                  alt=""
+                  fill
+                ></Image>
               </div>
               <h4 className="name">{data.username}</h4>
             </div>
           </div>
           <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
-            <Image src={data.img} fill alt="" />
+            <Image src={data.img || "/websites.jpg"} fill alt="" />
           </div>
         </div>
         <p className="test-container text-gray-300 ">{data.content}</p>

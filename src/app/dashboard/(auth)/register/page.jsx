@@ -30,7 +30,7 @@ const Register = () => {
       });
 
       if (res.status === 201) {
-        router.push("/dashboard/login?success=Account has been created");
+        router.push("/dashboard/login?success=Accounthasbeencreated");
       }
     } catch (error) {
       seterr(true);

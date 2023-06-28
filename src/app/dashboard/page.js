@@ -70,18 +70,34 @@ const Dashboard = () => {
           {isLoading
             ? "loading"
             : data?.map((post) => (
-                <div className="flex md:w-[65%] w-[80vw]  justify-between items-center " key={post._id}>
+                <div
+                  className="flex md:w-[65%] w-[80vw]  justify-between items-center "
+                  key={post._id}
+                >
                   <div className="">
-                    <Image src={post.img} alt="" width={200} height={100} className=" shadow-lg rounded-md " />
+                    <Image
+                      src={post.img || "/websites.jpg"}
+                      alt=""
+                      width={200}
+                      height={100}
+                      className=" shadow-lg rounded-md "
+                    />
                   </div>
                   <h2 className=" font-bold text-xl  ">{post.title}</h2>
-                  <span title="delete" className=" text-white bg-red-500 w-7 h-7 rounded-full flex items-center justify-center cursor-pointer " onClick={() => handleDelete(post._id)}>
+                  <span
+                    title="delete"
+                    className=" text-white bg-red-500 w-7 h-7 rounded-full flex items-center justify-center cursor-pointer "
+                    onClick={() => handleDelete(post._id)}
+                  >
                     X
                   </span>
                 </div>
               ))}
         </div>
-        <form className=" w-[90vw] md:w-[40%]  flex flex-col gap-3  " onSubmit={handleSubmit}>
+        <form
+          className=" w-[90vw] md:w-[40%]  flex flex-col gap-3  "
+          onSubmit={handleSubmit}
+        >
           <h1 className="font-bold text-2xl">Add New Post</h1>
           <input
             type="text"
