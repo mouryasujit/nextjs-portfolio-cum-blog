@@ -7,6 +7,21 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const Dashboard = () => {
+  const imgarr = [
+    "/1.png",
+    "/2.png",
+    "/3.png",
+    "/4.png",
+    "/apps.jpg",
+    "/BeFunky-collage.jpg",
+    "/booking.jpg",
+    "/contact.png",
+    "/hero.png",
+    "/illustration.png",
+    "/jobathon.jpg",
+    "/websites.jpg",
+    "/whetherapp.jpg",
+  ];
   const session = useSession();
 
   const router = useRouter();
@@ -76,7 +91,7 @@ const Dashboard = () => {
                 >
                   <div className="">
                     <Image
-                      src={post.img || "/websites.jpg"}
+                      src={imgarr[Math.random() * 14]}
                       alt=""
                       width={200}
                       height={100}

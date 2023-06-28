@@ -7,10 +7,13 @@ import { PageNotFoundError } from "next/dist/shared/lib/utils";
 import axios from "axios";
 
 const getData = async (id) => {
+ 
   try {
     const res = await axios.get(
+      // `http://localhost:3000/api/posts/${id}`
       `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`
     );
+    console.log(res.data);
     return res.data;
   } catch (error) {
     return new PageNotFoundError("404 not found");
@@ -26,6 +29,21 @@ export async function generateMetadata({ params }) {
 }
 const Blogpost = async ({ params }) => {
   // console.log(params.id);
+  const imgarr = [
+    "/1.png",
+    "/2.png",
+    "/3.png",
+    "/4.png",
+    "/apps.jpg",
+    "/BeFunky-collage.jpg",
+    "/booking.jpg",
+    "/contact.png",
+    "/hero.png",
+    "/illustration.png",
+    "/jobathon.jpg",
+    "/websites.jpg",
+    "/whetherapp.jpg",
+  ];
   const data = await getData(params.id);
   return (
     <>
@@ -37,7 +55,7 @@ const Blogpost = async ({ params }) => {
             <div className="profile flex items-center gap-3 ">
               <div className="profileimg w-8 h-8 relative rounded-full ">
                 <Image
-                  src={data.img || "/websites.jpg"}
+                  src={imgarr[Math.random() * 14]}
                   className="rounded-full"
                   alt=""
                   fill
@@ -47,7 +65,7 @@ const Blogpost = async ({ params }) => {
             </div>
           </div>
           <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
-            <Image src={data.img || "/websites.jpg"} fill alt="" />
+            <Image src={imgarr[Math.random() * 14]} fill alt="" />
           </div>
         </div>
         <p className="test-container text-gray-300 ">{data.content}</p>

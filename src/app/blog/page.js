@@ -7,12 +7,14 @@ import { NextResponse } from "next/server";
 import Card from "@/components/card/Card";
 
 const getData = async () => {
+  
   try {
     const res = await axios.get(
       "https://nextjs-portfolio-cum-blog.vercel.app/api/posts"
+      // "http://localhost:3000/api/posts"
     );
     // console.log(res.json());
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (error) {
     return new NextResponse("Server error");
