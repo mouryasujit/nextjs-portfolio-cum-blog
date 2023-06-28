@@ -30,7 +30,7 @@ const Card = ({ item }) => {
       >
         <div className="img   h-[250px] w-[350px] relative ">
           <Image
-            src={imgarr[Math.random() * 14]}
+            src={imgarr[Math.floor(Math.random() * 14)]}
             alt="post-image"
             fill="true"
             className="h-full w-full"

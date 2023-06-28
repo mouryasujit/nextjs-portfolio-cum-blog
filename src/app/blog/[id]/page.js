@@ -7,7 +7,6 @@ import { PageNotFoundError } from "next/dist/shared/lib/utils";
 import axios from "axios";
 
 const getData = async (id) => {
- 
   try {
     const res = await axios.get(
       // `http://localhost:3000/api/posts/${id}`
@@ -55,7 +54,7 @@ const Blogpost = async ({ params }) => {
             <div className="profile flex items-center gap-3 ">
               <div className="profileimg w-8 h-8 relative rounded-full ">
                 <Image
-                  src={imgarr[Math.random() * 14]}
+                  src={imgarr[Math.floor(Math.random() * 14)]}
                   className="rounded-full"
                   alt=""
                   fill
