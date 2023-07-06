@@ -14,7 +14,7 @@ async function getData(id) {
   );
 
   if (!res.ok) {
-    return PageNotFoundError();
+    return new PageNotFoundError();
   }
 
   return res.json();
