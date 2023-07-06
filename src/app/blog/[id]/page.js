@@ -1,7 +1,5 @@
 import Image from "next/image";
 import React from "react";
-// import illus from "/public/illustration.png";
-// import axios from "axios";
 import { PageNotFoundError } from "next/dist/shared/lib/utils";
 // import { NextResponse } from "next/server";
 import axios from "axios";
@@ -15,7 +13,7 @@ async function getData(id) {
   );
 
   if (!res.ok) {
-    return notFound();
+    return PageNotFoundError();
   }
 
   return res.json();
