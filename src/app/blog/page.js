@@ -7,12 +7,12 @@ import { NextResponse } from "next/server";
 import Card from "@/components/card/Card";
 
 async function getData(id) {
-  const res = await fetch(`http://localhost:3000/api/posts/${id}`, {
+  const res = await fetch(`http://localhost:3000/api/posts`, {
     cache: "no-store",
   });
 
   if (!res.ok) {
-    return notFound();
+    return NextResponse("error", { status: 500 });
   }
 
   return res.json();
