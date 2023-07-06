@@ -7,6 +7,7 @@ import axios from "axios";
 async function getData(id) {
   const res = await fetch(
     `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`,
+    // `http://localhost:3000/api/posts/${id}`,
     {
       cache: "no-store",
     }
@@ -44,6 +45,7 @@ const Blogpost = async ({ params }) => {
     "/whetherapp.jpg",
   ];
   const data = await getData(params.id);
+  console.log(data);
   return (
     <>
       {data && (
@@ -65,7 +67,7 @@ const Blogpost = async ({ params }) => {
               </div>
             </div>
             <div className="img md:w-[600px] md:h-[250px] w-[90vw] h-[40vh] relative ">
-              <Image src={imgarr[Math.random() * 14]} fill alt="" />
+              <Image src={imgarr[Math.floor(Math.random() * 13)]} fill alt="" />
             </div>
           </div>
           <p className="test-container text-gray-300 ">{data?.content}</p>
