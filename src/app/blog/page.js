@@ -6,7 +6,7 @@ import axios from "axios";
 import { NextResponse } from "next/server";
 import Card from "@/components/card/Card";
 
-async function getData(id) {
+async function getData() {
   const res = await fetch(`http://localhost:3000/api/posts`, {
     cache: "no-store",
   });
