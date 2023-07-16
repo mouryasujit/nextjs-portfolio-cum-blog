@@ -47,7 +47,7 @@ const page = ({ params }) => {
               <li>Can filter contents based on your needs</li>
               <li>Can post new jobs</li>
             </div>
-            <Link href="https://mybookingclient.onrender.com/">
+            <Link href="https://jobathon.onrender.com/">
               <button className="bg-green-500 p-3 rounded-md hover:bg-green-600 w-max">
                 See More
               </button>

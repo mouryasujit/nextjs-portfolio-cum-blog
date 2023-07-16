@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import { PageNotFoundError } from "next/dist/shared/lib/utils";
 // import { NextResponse } from "next/server";
-import axios from "axios";
 
 async function getData(id) {
   const res = await fetch(
