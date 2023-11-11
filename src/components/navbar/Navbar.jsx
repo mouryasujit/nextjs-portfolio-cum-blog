@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-10 my-3  p-2 md:p-0 ">
       <div className="flex justify-between items-center   py-2 max-w-7xl mx-auto relative ">
-        <h1 className="font-bold">NextApp</h1>
+        <h1 className="font-bold">Blog App</h1>
         <div className="hidden md:flex md:justify-between md:items-center w-[50%] ">
           <Darkmode />
           {lists.map((list) => (

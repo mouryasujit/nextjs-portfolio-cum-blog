@@ -3,6 +3,7 @@ import illustration from "/public/illustration.png";
 import website from "/public/websites.jpg";
 import appli from "/public/apps.jpg";
 import Link from "next/link";
+import Image from "next/image";
 
 const Portfolio = () => {
   return (
@@ -11,37 +12,53 @@ const Portfolio = () => {
       <div className="imgcon w-full flex md:flex-row flex-col  mx-2 gap-8 ">
         <Link href="/portfolio/illustrations">
           <div
-            className="img1 h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 "
-            style={{
-              backgroundImage: `url(${illustration.src})`,
-              backgroundSize: "cover",
-            }}
-          >
-            <h2 className="text-4xl absolute bottom-4 right-3">
-              Illustrations
-            </h2>
-          </div>
-        </Link>
-        <Link href="/portfolio/websites">
-          <div
-            className="img2  h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 hover:bg-  "
+            className="img2  h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 hover:overflow-hidden "
             style={{
               backgroundImage: `url(${website.src})`,
               backgroundSize: "cover",
             }}
           >
-            <h2 className="text-4xl absolute bottom-4 right-3">Websites</h2>
+            <Image
+              fill={true}
+              src={appli}
+              alt="image"
+              className="hover:scale-110  "
+            />
+            <h2 className="text-4xl absolute bottom-4 right-3">Application</h2>
+          </div>
+        </Link>
+        <Link href="/portfolio/websites">
+          <div
+            className="img2  h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 hover:overflow-hidden "
+            style={{
+              backgroundImage: `url(${website.src})`,
+              backgroundSize: "cover",
+            }}
+          >
+            <Image
+              fill={true}
+              src={illustration}
+              alt="image"
+              className="hover:scale-110  "
+            />
+            <h2 className="text-4xl absolute bottom-4 right-3">Illustration</h2>
           </div>
         </Link>
         <Link href="/portfolio/applications">
           <div
-            className="img3  h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 "
+            className="img2  h-[400px] w-[300px] border-4 border-white bg-[url('/public/illustration.png')] relative font-bold hover:text-green-400 hover:overflow-hidden "
             style={{
-              backgroundImage: `url(${appli.src})`,
+              backgroundImage: `url(${website.src})`,
               backgroundSize: "cover",
             }}
           >
-            <h2 className="text-4xl absolute bottom-4 right-3">Applications</h2>
+            <Image
+              fill={true}
+              src={website}
+              alt="image"
+              className="hover:scale-110  "
+            />
+            <h2 className="text-4xl absolute bottom-4 right-3">Websites</h2>
           </div>
         </Link>
       </div>

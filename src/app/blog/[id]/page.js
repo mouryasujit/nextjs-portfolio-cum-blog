@@ -1,33 +1,27 @@
+"use client";
 import Image from "next/image";
-import React from "react";
-import { PageNotFoundError } from "next/dist/shared/lib/utils";
-// import { NextResponse } from "next/server";
+import { notFound } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
-async function getData(id) {
-  const res = await fetch(
-    `https://nextjs-portfolio-cum-blog.vercel.app/api/posts/${id}`,
-    // `http://localhost:3000/api/posts/${id}`,
-    {
-      cache: "no-store",
+const getData = async (id) => {
+  try {
+    const res = await fetch(`api/posts/${id}`, {
+      cache: "no-cache",
+    });
+    if (!res.ok) {
+      return { notFound: true };
     }
-  );
-
-  if (!res.ok) {
-    return new PageNotFoundError("No data found");
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return null;
   }
+};
 
-  return res.json();
-}
+const BlogPost = ({ params }) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-export async function generateMetadata({ params }) {
-  const post = await getData(params.id);
-  return {
-    title: post?.title,
-    description: post?.desc,
-  };
-}
-const Blogpost = async ({ params }) => {
-  // console.log(params.id);
   const imgarr = [
     "/1.png",
     "/2.png",
@@ -43,8 +37,33 @@ const Blogpost = async ({ params }) => {
     "/websites.jpg",
     "/whetherapp.jpg",
   ];
-  const data = await getData(params.id);
-  console.log(data);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const postData = await getData(params.id);
+        setData(postData);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [params.id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (!data) {
+    return <div>Error While Fetching data...</div>;
+  }
+
+  // Shuffle the array using Fisher-Yates algorithm
+  const shuffledImgArr = imgarr.sort(() => Math.random() - 0.5);
+
   return (
     <>
       {data && (
@@ -76,4 +95,4 @@ const Blogpost = async ({ params }) => {
   );
 };
 
-export default Blogpost;
+export default BlogPost;

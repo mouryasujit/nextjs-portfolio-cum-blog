@@ -1,28 +1,26 @@
-import { NextResponse } from "next/server";
+import connect from "@/app/utils/db";
 import Post from "@/models/Post";
-import Connect from "@/utils/db";
+import { NextResponse } from "next/server";
 
-export const GET = async (requests, { params }) => {
-  console.log(params);
+export const GET = async (request, { params }) => {
   const { id } = params;
-
+  console.log(params);
   try {
-    const res = await Post.findById(id);
-    return new NextResponse(JSON.stringify(res), { status: 200 });
+    await connect();
+    const post = await Post.findById(id);
+    return new NextResponse(JSON.stringify(post), { status: 200 });
   } catch (error) {
-    return new NextResponse(error, { status: 500 });
+    return new NextResponse("Database Error", { status: 500 });
   }
 };
 
-export const DELETE = async (req, { params }) => {
-  const { id } = params;
+export const DELETE = async (request, { params }) => {
+  const id = params.id;
   try {
-    await Connect();
-
-    await Post.findByIdAndDelete(id);
-
-    return new NextResponse("Post has been deleted", { status: 200 });
+    await connect();
+    const post = await Post.findByIdAndDelete(id);
+    return new NextResponse("Deleted successfully", { status: 200 });
   } catch (error) {
-    return new NextResponse("databse error", { status: 500 });
+    return new NextResponse("Database Error", { status: 500 });
   }
 };
