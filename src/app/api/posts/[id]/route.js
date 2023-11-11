@@ -6,7 +6,7 @@ export const GET = async (request, { params }) => {
   const { id } = params;
   console.log(params);
   try {
-    await connect();
+    await Connect();
     const post = await Post.findById(id);
     return new NextResponse(JSON.stringify(post), { status: 200 });
   } catch (error) {
@@ -17,7 +17,7 @@ export const GET = async (request, { params }) => {
 export const DELETE = async (request, { params }) => {
   const id = params.id;
   try {
-    await connect();
+    await Connect();
     const post = await Post.findByIdAndDelete(id);
     return new NextResponse("Deleted successfully", { status: 200 });
   } catch (error) {
