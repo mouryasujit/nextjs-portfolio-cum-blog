@@ -1,4 +1,4 @@
-import connect from "@/app/utils/db";
+import Connect from "@/utils/db";
 import Post from "@/models/Post";
 import { NextResponse } from "next/server";
 
