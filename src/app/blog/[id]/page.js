@@ -6,7 +6,7 @@ import React, { useEffect, useState } from "react";
 const getData = async (id) => {
   try {
     const res = await fetch(
-      `https://sujitkumarmourya.vercel.app//api/posts/${id}`,
+      `https://sujitkumarmourya.vercel.app/api/posts/${id}`,
       {
         cache: "no-cache",
       }
